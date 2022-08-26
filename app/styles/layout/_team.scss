@@ -1,0 +1,99 @@
+.team {
+    --height-image: 47rem;
+    padding: 10rem 0;
+
+    &-list {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &-item {
+        width: calc(100% / 3 - 2rem);
+    }
+
+    &-image {
+        @include size(100%, var(--height-image))
+    }
+
+    &-info {
+        padding: 3rem 1.5rem;
+        text-align: center;
+        height: calc(100% - var(--height-image));
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &-name {
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+        line-height: 1.4;
+        @include textClamp(2);
+    }
+
+    &-position {
+        font-family: $secondary-font;
+        font-weight: 300;
+        color: $text-color;
+        @include textClamp(1);
+    }
+
+    &-social {
+        display: flex;
+        align-items: center;
+    }
+
+    &-social-link {
+        @include flexCenter();
+        @include size(6rem);
+        background-color: $secondary-color;
+        color: $primary-color;
+        font-size: 2rem;
+        transition: all 0.2s ease;
+
+        &:hover {
+            color: #fff;
+            background-color: $primary-color;
+        }
+    }
+
+    &-social-item:not(:last-child) {
+        border-right: 1px solid $primary-color;
+    }
+
+    @include maxWidth(1023px) {
+        padding: 5rem 0;
+
+        &-info {
+            padding: 1.5rem
+        }
+
+        &-name {
+            margin-bottom: 1rem;
+        }
+
+        &-list {
+            @include touchScroll(60%);
+            --height-image: 40rem;
+        }
+    }
+
+    @include maxWidth(767px) {
+        &-list {
+            @include touchScroll();
+            --height-image: 30rem;
+        }
+    }
+}
+
+.brand {
+    background-color: $gray-color;
+    padding: 6rem 0;
+
+    @include maxWidth(1023px) {
+        padding: 3rem 0;
+    }
+}
+
+@include hoverEffect('.team-main', '.team-content');

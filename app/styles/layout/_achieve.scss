@@ -1,0 +1,86 @@
+.achieve {
+    background-color: $third-color;
+    color: #fff;
+
+    &-list {
+        display: flex;
+    }
+
+    &-item {
+        @include flexCenter();
+        width: 20%;
+        padding: 9rem 4rem;
+        border-left: 1px solid #fff;
+        text-transform: uppercase;
+
+        &:last-child {
+            border-right: 1px solid #fff;
+        }
+    }
+
+    &-number {
+        font-size: 7.2rem;
+        margin-bottom: 2rem;
+        font-weight: bold;
+    }
+
+    &-text {
+        text-align: center;
+        line-height: 1.4;
+    }
+
+    @include maxWidth(1023px) {
+        &-item {
+            padding: 5rem 1.5rem;
+        }
+
+        &-number {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+        }
+    }
+
+    // @include maxWidth(767px) {
+    //     &-list {
+    //         display: block;
+    //     }
+
+    //     &-item:not(:nth-child(999)) {
+    //         width: 100%;
+    //         border-left-width: 0;
+    //         border-right-width: 0;
+
+    //         &:not(:last-child) {
+    //             border-bottom: 1px solid #fff;
+    //         }
+    //     }
+    // }
+
+    @include maxWidth(767px) {
+        background-color: unset;
+        &-list {
+            // display: grid;
+            // grid-gap: 3rem;
+            // grid-auto-columns: 80%;
+            // grid-auto-flow: column;
+            // overflow-x: auto;
+            // @include hideScroll();
+            // @include scrollSnap();
+            // padding: 1rem;
+            @include touchScroll();
+        }
+
+        &-item:not(:nth-child(999)) {
+            width: unset;
+            background-color: $third-color;
+            border-left-width: 0;
+            border-right-width: 0;
+            // @include scrollSnapChild();
+
+            &:not(:last-child) {
+                border-bottom: 1px solid #fff;
+            }
+        }
+    }
+}
+

@@ -1,0 +1,83 @@
+.work {
+    padding: 10rem 0;
+    
+    &-list {
+        display: grid;
+        grid-template-areas: 
+        'a b e f'
+        'c d e g';
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 36rem);
+    }
+
+    &-item {
+        &:nth-child(1) { grid-area: a; }
+        &:nth-child(2) { grid-area: b; }
+        &:nth-child(3) { grid-area: c; }
+        &:nth-child(4) { grid-area: d; }
+        &:nth-child(5) { grid-area: e; }
+        &:nth-child(6) { grid-area: f; }
+        &:nth-child(7) { grid-area: g; }
+    }
+
+    &-image {
+        @include size(100%);
+    }
+
+    &-content {
+        @include flexCenter();
+        color: #fff;
+        & > * {
+            margin-bottom: 2rem;
+            text-align: center;
+            line-height: 1.6;
+            padding: 0 1rem;
+        }
+    }
+
+    &-title {
+        text-transform:uppercase;
+        @include textClamp(1);
+    }
+
+    &-description {
+        font-style: italic;
+        font-size: 1.5rem;
+        font-family: $secondary-font;
+        @include textClamp(3);
+    }
+
+    @include maxWidth(1279px) {
+        &-list {
+            grid-template-areas: 
+            'a b'
+            'c d'
+            'e f'
+            'e g';
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @include maxWidth(1023px) {
+        padding: 5rem 0;
+    }
+
+    @include maxWidth(767px) {
+        &-container {
+            padding: 1.5rem;
+        }
+
+        &-list {
+            @include touchScroll();
+            grid-template-rows: repeat(1, 30rem);
+            grid-template-areas: unset;
+        }
+
+        &-item {
+            grid-area: unset !important;
+        }
+    }
+
+}
+
+@include hoverEffect('.work-item', '.work-content', 'no-move')

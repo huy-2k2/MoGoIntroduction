@@ -1,0 +1,118 @@
+mixin menuLink(title, href)
+    li.header-menu-item 
+        a.header-menu-link(href= href)= title
+
+mixin menuIcon(icon, href) 
+    li.header-menu-item 
+        a.header-menu-icon(href= href)
+            i(class= icon)
+
+mixin headerBottomItem(number, text, active='')
+    div(class=`header-bottom-item ${active}`)
+        span.header-bottom-number= number
+        span.header-bottom-text= text
+
+mixin blockBox(caption, title, description)
+    .block-box
+        h3.block-box-caption= caption 
+        h2.block-box-title= title 
+        if description 
+            p.block-box-description= description
+
+mixin aboutItem(src, icon, title)
+     .about-item 
+        img.about-image(src= src)
+        .about-content
+            i(class=`about-icon ${icon}`)
+            span.about-title= title
+
+mixin achieveItem(number, text) 
+    .achieve-item 
+        span.achieve-number= number
+        span.achieve-text= text
+
+mixin serviceItem(img, title, text) 
+    .service-item
+        img.service-item-img(src= img)
+        .service-item-info 
+            h3.service-item-title= title
+            span.service-item-text= text
+
+mixin wedoItem(icon, header, content, active= '')
+    div(class= `wedo-item ${active}`)
+        .wedo-item-header
+            img.wedo-item-icon(src= icon)
+            h3.wedo-item-title= header
+            i.fal.fa-angle-up.wedo-item-arrow
+            i.fal.fa-angle-down.wedo-item-arrow
+        .wedo-item-content 
+            .wedo-item-text= content
+
+mixin quoteItem(description, author, image)
+    .quote-item
+        if image
+            img.quote-avatar(src= image)
+        else
+            .quote-icon
+                img(src= './images/img-quote.png')
+        .quote-info
+            p.quote-description= description
+            span.quote-author= author
+
+mixin teamItem(image, name, position, href1= '#', href2= '#', href3= '#', href4= '#')
+    .team-item
+        .team-main
+            img.team-image(src= image)
+            .team-content 
+                ul.team-social
+                    li.team-social-item
+                        a.team-social-link(href= href1)
+                            i.fab.fa-facebook-f
+                    li.team-social-item
+                        a.team-social-link(href= href2)
+                            i.fab.fa-twitter
+                    li.team-social-item
+                        a.team-social-link(href= href3)
+                            i.fab.fa-pinterest
+                    li.team-social-item
+                        a.team-social-link(href= href4)
+                            i.fab.fa-instagram
+        .team-info
+            h4.team-name= name
+            span.team-position= position
+
+mixin clientItem(image, name, position, description)
+    .client-item 
+        img.client-image(src= image)
+        .client-info 
+            h4.client-name= name
+            p.client-position= position
+            p.client-description= description
+
+mixin workItem(image, title, description)
+    .work-item 
+        img.work-image(src= image)
+        .work-content
+            img.work-icon(src="./images/img-work-icon.png")
+            h4.work-title= title
+            span.work-description= description
+
+mixin storyItem(image, dateNumber, dateText, title, description, follow, comment)
+    .story-item
+        .story-media
+            img.story-image(src= image)
+            .story-date
+                span.story-date-number= dateNumber
+                span.story-date-text= dateText
+        .story-content
+            .story-title= title
+            .story-wrap
+                .story-description 
+                    p.story-description-inner= description
+                .story-meta
+                    .story-meta-item 
+                        i.story-meta-icon.fa.fa-eye
+                        span.story-meta-text= follow
+                    .story-meta-item 
+                        i.story-meta-icon.fa.fa-comment
+                        span.story-meta-text= comment

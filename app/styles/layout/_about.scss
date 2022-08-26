@@ -1,0 +1,59 @@
+.about {
+    padding-top: 9rem;
+    padding-bottom: 11rem;
+    background-color: #fff;
+  
+    &-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: 3rem;
+    }
+
+    &-image {
+        width: 100%;
+    }
+
+    &-content {
+        color: #fff;
+        padding: 2rem;
+    }
+
+    &-title {
+        font-size: 1.8rem;
+        font-weight: bold;
+        text-align: center;
+        line-height: 1.4;
+        @include textClamp(2)
+    }
+
+    &-icon {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    @include maxWidth(1023px) {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+    }
+
+    @include maxWidth(767px) {
+        // &-list {
+        //     grid-template-columns: unset;
+        //     grid-auto-columns: 80%;
+        //     grid-auto-flow: column;
+        //     overflow-x: auto;
+        //     @include hideScroll();
+        //     @include scrollSnap();
+        //     padding: 1rem;
+        // }
+
+        // &-item {
+        //     @include scrollSnapChild()
+        // }
+        &-list {
+            @include touchScroll();
+        }
+    }
+}
+
+@include hoverEffect('.about-item', '.about-content')
